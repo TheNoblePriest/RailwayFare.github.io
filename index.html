@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+          *{
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+          }
+          .container{
+               width: 100%;
+               height: 100vh;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               flex-direction: column;
+               background-color: blueviolet;
+          }
+          .contents{
+               width: 60%;
+               height: 60%;
+               background-color: yellow;
+               border-radius: 20px;
+               display: flex;
+               justify-content: space-around;
+               align-items:center;
+               flex-direction:column ;
+               padding: 20px;
+               box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+          }
+          .block1{
+               width: 70%;
+               display: flex;
+               justify-content: flex-start;
+               align-items: center;
+               padding: 20px;
+               box-shadow:0 5px 5px rgba(0, 0, 0, 0.4);
+               border-radius: 20px;
+               color: white;
+               background-color: rgba(255, 0, 0, 0.8);
+          }
+          .Amount__calc{
+               display: flex;
+               flex-direction: column;
+          }
+          .drop_down{
+               padding-left: 10px;
+          }
+          .c1{
+               display: flex;
+               padding: 10px;
+          }
+          select{
+               font-size: 20px;
+               outline: none;
+               border: none;
+               border-radius: 10px;
+               padding: 10px;
+          }
+          
+          button{
+               padding: 10px;
+               width: 60px;
+               outline: none;
+               border: none;
+               cursor: pointer;
+               border-radius: 10px;
+               box-shadow:0 5px 5px rgba(0, 0, 0, 0.4);
+               background-color: rgb(3, 184, 255);
+          }
+          .btn{
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               
+          }
+          
+          @media (max-width:600px) {
+               h1{
+                    font-size: 18px;
+               }
+               .container{
+                    justify-content: flex-start;
+               }
+               .contents{
+                    width: 100%;
+                    height: 80%;
+                    
+               }
+               .block1{
+                    width: 100%;
+               }
+          }
+     </style>
+     <title>Station Fare Money</title>
+</head>
+<body>
+     <div class="container">
+          <h1 style="color: rgb(245, 229, 8); border:1px solid white; margin:10px 0 ;">Subham Kumar Singh(BCA/40540/20)</h1>
+          <div class="contents">
+          <h2>Railway Fare Finding</h2>
+
+               <div class="block1">
+                    <p>Select Your Source Station ::</p>
+                    <div class="drop_down">
+                    
+                    <select id ="source">
+                         <option value="0" >None</option>
+                         <option value="1" >Delhi</option>
+                         <option value="2" >Ranchi</option>
+                         <option value="3" >Dhanbad</option>
+                         <option value="4" >Kolkata</option>
+                         <option value="5" >Goa</option>
+                    </select>
+                    </div>
+                   
+               </div>
+                <div class="block1">
+                    <p>Select Destination Station ::</p>
+                    <div class="drop_down">
+                         <select id="destination">
+                              <option value="0" >None</option> 
+                              <option value="1">Delhi</option>
+                              <option value="2">Ranchi</option>
+                              <option value="3">Dhanbad</option>
+                              <option value="4">Kolkata</option>
+                              <option value="5">Goa</option>        
+                         </select>
+                         </div>
+                </div>
+                <div class="Amount__calc">
+                    <div class="c1">
+                         <P>Enter the number of Passenger :: </P>
+                          <input style="padding:6px; width:50px; margin-left:20px" type="text"  id="noOfPassenger">
+                    </div>
+                    <div class="btn">
+                         <button id="btn">Fare</button>
+                    </div>
+                    
+                    <div class="c1">
+                         <p>Total Fare Amount Is :: <span id="amount"></span></p>
+                    </div>
+                    
+           </div>
+     </div>
+</div>
+     <script  >
+          btn.onclick = (e) =>{
+               e.preventDefault();
+               const source = document.querySelector("#source");
+               const destination = document.querySelector("#destination");
+               const btn = document.querySelector('#btn');
+          
+               let pass = Number(document.getElementById("noOfPassenger").value);
+               let total = 0;
+          
+               let des = destination.selectedIndex;
+               let sou = source.selectedIndex; 
+          
+               switch (sou){
+               case 1 : switch(des){
+                         case 1:  document.getElementById("amount").innerText = "sorry ...";
+                                  break;
+                         case 2:   total = pass * 555;
+                                   document.getElementById("amount").innerText = total;
+                                   break;
+                         case 3:   total = pass * 550;
+                                   document.getElementById("amount").innerText = total;
+                                   break;
+                         case 4:   total = pass * 450;
+                                   document.getElementById("amount").innerText = total;  
+                                   break;
+                        
+                         case 5:    total = pass *455;
+                                   document.getElementById("amount").innerText = pass * 455; 
+                                   break;                          
+                         }
+          
+                    break;
+          
+                    case 2 : switch(des){
+                         case 1:   total = pass * 355;
+                                   document.getElementById("amount").innerText = total;
+                                    break;
+                         case 2:   document.getElementById("amount").innerText ="sorry ";
+                                   break;
+                         case 3:   total = pass * 350;
+                                   document.getElementById("amount").innerText = total;
+                                   break;
+          
+                         case 4:   total = pass * 350;
+                                   document.getElementById("amount").innerText = total;  
+                                   break;
+                        
+                         case 5:   total = pass * 355;
+                                   document.getElementById("amount").innerText = total;
+                                   break;                          
+                         }
+          
+                    break;
+                    
+                    case 3 : switch(des){
+                         case 1:   total = pass * 255;
+                                   document.getElementById("amount").innerText = total;
+                                   break;
+                         case 2:   total = pass * 255;
+                                   document.getElementById("amount").innerText = total;
+                                   break;
+                         case 3:   document.getElementById("amount").innerText = "sorry";
+                                   break;
+                         case 4:   total = pass * 250;
+                                   document.getElementById("amount").innerText = total;  
+                                   break;
+                        
+                         case 5:    total = pass * 250;
+                                   document.getElementById("amount").innerText = total;
+                                   break;                          
+                         }
+          
+                    break;
+          
+                    case 4 : switch(des){
+                         case 1:  total = pass * 655;
+                                   document.getElementById("amount").innerText = total;
+                                  break;
+                         case 2:   total = pass * 655;
+                                   document.getElementById("amount").innerText = total;
+                                   break;
+                         case 3:   total = pass * 650;
+                                   ocument.getElementById("amount").innerText = total;
+                                   break;
+                         case 4:  document.getElementById("amount").innerText = "sorry"; 
+                                   break;
+                        
+                         case 5:    total = pass * 650;
+                                   document.getElementById("amount").innerText = total;
+                                   break;                          
+                         }
+          
+                    break;
+          
+                    case 5 : switch(des){
+                         case 1:   total = pass * 155;
+                                   document.getElementById("amount").innerText = total;
+                                  break;
+                         case 2:    total = pass * 155;
+                                   document.getElementById("amount").innerText = total;
+                                   break;
+                         case 3:   total = pass * 150;
+                                   document.getElementById("amount").innerText = total;
+                                   break;
+                         case 4:  total = pass * 150;
+                                   document.getElementById("amount").innerText = total;
+                                   break;
+                        
+                         case 5:  document.getElementById("amount").innerText = "sorry";
+                                   break;                          
+                         }
+          
+                    break;
+          
+          
+               
+               }
+             
+          }
+          
+          
+     </script>
+</body>
+</html>
